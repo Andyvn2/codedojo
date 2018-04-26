@@ -1,0 +1,64 @@
+<h2>Submit a movie and your review</h2>
+<!-- <div *ngIf="errors != 'undefined'" >
+
+	 	<p>{{ Errors['message'] }}</p>
+</div>
+ -->
+
+
+<form  (submit)="onSubmit()" ng-submit="onSubmit(user)" name="movieForm" class="postForm" novalidate>
+
+	
+
+	
+	
+	<br>
+		<p ng-show="movieForm.newMovieTitle.$invalid"> Movie Title is too short. Need 3 characters.</p>
+	Movie Title:<input id="movieName" type="text" name="newMovieTitle" [(ngModel)] = "newMovie.title" 
+	ng-model="user.newMovieTitle"
+	ng-minlength= "3" 
+
+	required>
+	<br>
+	
+<p ng-show="movieForm.newReviewName.$invalid && !movieForm.newReviewName.$pristine"> Your name is too short. 3 Characters needed</p>
+<br>
+	Your Name:<input id="yourName" type="text" name="newReviewName" 
+	[(ngModel)] = "newMovie.YourName" 
+	ng-model="user.description" 
+	ng-minlength= "3" 
+	ng-required= true
+	>
+	
+
+	<br>
+		<p ng-show="movieForm.reviewRating.$invalid"> Star Rating must be between 1 and 5</p>
+		<br>
+	Stars: <select id="rating" name= "reviewRating" [(ngModel)] = "newMovie.rating"
+	ng-model="user.reviewRating"
+	ng-min= "3" 
+	ng-required = true> 
+		<option value=1>1</option>
+		<option value=2>2</option>
+		<option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
+
+			</select>
+	<br>
+	
+<p ng-show="movieForm.newReviewReview.$invalid"> Movie Review is too short. Atleast 3 Characters</p>
+<br> 	
+	Your Review:<input id="review" type="text" name="newReviewReview" [(ngModel)] = "newMovie.review" 
+	ng-minlength= "3" 
+	ng-required = true>
+	
+
+
+	<br>
+	<input ng-submit="onSubmit()" ng-disabled="movieForm.$invalid" type="submit" >
+	<button [routerLink] = "['/movies']">Cancel</button>
+
+
+
+</form>

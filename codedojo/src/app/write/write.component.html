@@ -1,0 +1,31 @@
+<h2>Add a review for</h2> <h2 *ngIf="name"> {{name}} </h2>
+<form>
+<form (submit) = "onSubmit()" name="movieForm" class="postForm">
+	
+	<p ng-show="movieForm.newReviewDescription.$error.minlength"> Your name is too short. 3 Characters needed</p>
+	<p ng-show="movieForm.reviewRating.$error.min"> Star Rating must be between 1 and 5</p>
+	<p ng-show="movieForm.newReviewReview.$error.minlength"> Movie Review is too short. Atleast 3 Characters</p>
+	<br>
+	Your Name:<input type="text" name="newReviewDescription" [(ngModel)] = "newReview.YourName" ng-minlength= "3" required>
+	<br>
+	Stars: <select name= "review.rating" [(ngModel)] = "newReview.rating"> 
+		<option value=1>1</option>
+		<option value=2>2</option>
+		<option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
+
+			</select>
+	<br>
+	Your Review:<input type="text" name="newReviewReview" [(ngModel)] = "newReview.review" ng-minlength= "3" required>
+	
+
+
+	<br>
+	<input type="submit" name="submitForm" value="Submit" ng-disabled="movieForm.$error">
+	<button [routerLink] = "['/movies']">Cancel</button>
+
+
+
+</form>
+</form>

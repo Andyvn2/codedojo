@@ -1,0 +1,21 @@
+<button (click) = "deleteButtonClicked()">Delete Movie</button>
+<button [routerLink] = "['/']" >Home</button>
+
+<table style="width:700px;" class="table">
+  <tr>
+    <th>Reviewer</th>
+    <th>Stars</th>
+    <th>Reviews</th>
+  </tr>
+
+
+<tr *ngFor="let review of reviews" style="width:700px;" >
+
+  <td> {{ review.name }} </td>
+  <td> {{ review.rating }} </td>
+  <td>{{ review.review}}
+  	<button (click) = "deleteButton(review._id)">Delete Review</button>
+  </td>
+</tr>
+ 
+</table>

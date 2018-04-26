@@ -1,0 +1,25 @@
+
+<app-edit></app-edit>
+<h2>Movie List</h2>
+<button [routerLink] = "['/movies/new']" >New Movie</button>
+<table style="width:700px;" class="table">
+  <tr>
+    <th>Movie Title</th>
+    <th>Actions Available</th>
+    <th>Average Score</th>
+  </tr>
+
+
+<tr *ngFor="let movie of movies">
+
+  <td> {{ movie.name }} </td>
+  <td>
+    <button [routerLink]="[movie._id]">Read Reviews</button>
+    <button [routerLink]="['review/'+movie._id]" >Write Review</button>
+  </td>
+  <td>
+  	average
+  </td>
+</tr>
+ 
+</table>
